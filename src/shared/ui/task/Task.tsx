@@ -1,18 +1,20 @@
 import clsx from 'clsx';
-import { Check } from 'lucide-react';
+import { Check, Delete } from 'lucide-react';
 
 import type { TaskEntity } from '@/entities/task';
 import { APP_TEXT } from '@/shared/constants';
 
+import { Tooltip } from '../tooltip/Tooltip';
 import styles from './Task.module.scss';
 
 type TaskProps = {
-  task: TaskEntity
-  onToggle: (task: TaskEntity) => void
-  disabled?: boolean
+  task: TaskEntity;
+  onToggle: (task: TaskEntity) => void;
+  disabled?: boolean;
+  onDelete: (taskId: number) => void;
 };
 
-export function Task({ task, onToggle, disabled = false }: TaskProps) {
+export function Task({ task, onToggle, disabled = false, onDelete }: TaskProps) {
   return (
     <li className={styles.item}>
       <button
@@ -23,11 +25,24 @@ export function Task({ task, onToggle, disabled = false }: TaskProps) {
       >
         {task.title}
       </button>
-      {task.done ? (
-        <span className={styles.badge} aria-label={APP_TEXT.tasks.completed}>
-          <Check aria-hidden="true" size={16} />
-        </span>
-      ) : null}
+      <div className={styles.iconButtonWrapper}>
+        {task.done ? (
+          <span className={styles.badge} aria-label={APP_TEXT.tasks.completed}>
+            <Check aria-hidden="true" size={16} />
+          </span>
+        ) : null}
+        <Tooltip content="Удалить задачу">
+          <button
+            type="button"
+            className={styles.iconButton}
+            onClick={() => onDelete(task.id)}
+            aria-label="Удалить задачу"
+          >
+            <Delete size={22} aria-hidden="true" />
+          </button>
+        </Tooltip>
+      </div>
+
     </li>
   );
 }

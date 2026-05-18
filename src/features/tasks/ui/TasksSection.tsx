@@ -1,13 +1,13 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
-import { FilterIcon } from 'lucide-react';
+import { FilterIcon, Trash } from 'lucide-react';
 
 import { useAppSelector } from '@/app/store/hooks';
 import type { TaskEntity } from '@/entities/task';
-import { useGetTasksQuery, useMarkDoneMutation } from '@/features/tasks/api/tasksApi';
+import { useDeleteTaskMutation, useDeleteTasksMutation, useGetTasksQuery, useMarkDoneMutation } from '@/features/tasks/api/tasksApi';
 import { APP_TEXT } from '@/shared/constants';
 import { getErrorMessage } from '@/shared/lib/getErrorMessage';
 import { useOutsidePointerClose } from '@/shared/lib/useOutsidePointerClose';
-import { Count, ErrorMessage, Filter, Loading, Task } from '@/shared/ui';
+import { Count, ErrorMessage, Filter, Loading, Task, Tooltip } from '@/shared/ui';
 
 import { selectTaskFilter } from '../model/taskFilterSlice';
 import { useActiveTasksCount } from '../model/useActiveTasksCount';
@@ -27,6 +27,8 @@ export function TasksSection({ login }: TasksSectionProps) {
   const filterRef = useRef<HTMLDivElement>(null);
   const activeTasksCount = useActiveTasksCount(tasks);
   const filteredTasks = useFilteredTasks(tasks, filter);
+  const [deleteTask, { isLoading: isDeletingTask }] = useDeleteTaskMutation();
+  const [deleteTasks] = useDeleteTasksMutation();
 
   const closeFilter = useCallback(() => {
     setIsFilterOpen(false);
@@ -61,6 +63,14 @@ export function TasksSection({ login }: TasksSectionProps) {
     setIsFilterOpen((current) => !current);
   }
 
+  function clearList() {
+    deleteTasks({ login, ids: filteredTasks.map((task) => task.id) });
+  }
+
+  function deleteTaskById(taskId: number) {
+    deleteTask({ id: taskId, login });
+  }
+
   return (
     <section className={styles.section}>
       <div className={styles.sectionHead}>
@@ -68,22 +78,35 @@ export function TasksSection({ login }: TasksSectionProps) {
           <h2 className={styles.heading}>{APP_TEXT.tasks.heading}</h2>
           <Count count={activeTasksCount} />
         </div>
-        {isFetching ? <Loading isLoading size="small" fullPage={false} /> :
-        <div ref={filterRef} className={styles.filterWrapper}>
-          <button
-            type="button"
-            className={styles.filterButton}
-            onClick={toggleFilter}
-            aria-label="Показать фильтры"
-            aria-expanded={isFilterOpen}
-          >
-            <FilterIcon size={22} aria-hidden="true" />
-          </button>
-          {isFilterOpen ? (
-            <Filter onClose={closeFilter} />
-          ) : null}
+        <div>
+          {isFetching ? <Loading isLoading size="small" fullPage={false} /> :
+          <div ref={filterRef} className={styles.filterWrapper}>
+            <button
+              type="button"
+              className={styles.iconButton}
+              onClick={toggleFilter}
+              aria-label="Показать фильтры"
+              aria-expanded={isFilterOpen}
+            >
+              <FilterIcon size={22} aria-hidden="true" />
+            </button>
+            {isFilterOpen ? (
+              <Filter onClose={closeFilter} />
+            ) : null}
+          </div>}
+          <div className={styles.filterWrapper}>
+            <Tooltip content="Удалить продукты из текущей выборки" align="right">
+              <button
+                type="button"
+                className={styles.iconButton}
+                onClick={clearList}
+                aria-label="Удалить список"
+              >
+                <Trash size={22} aria-hidden="true" />
+              </button>
+            </Tooltip>
+          </div>
         </div>
-        }
       </div>
       {tasks.length === 0 ? (
         <p className={styles.muted}>{APP_TEXT.tasks.empty}</p>
@@ -94,7 +117,8 @@ export function TasksSection({ login }: TasksSectionProps) {
               key={task.id}
               task={task}
               onToggle={markDone}
-              disabled={isMarkingDone}
+              onDelete={deleteTaskById}
+              disabled={isMarkingDone || isDeletingTask}
             />
           ))}
         </ul>

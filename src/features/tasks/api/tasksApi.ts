@@ -29,6 +29,20 @@ export type MarkDoneResponse = {
   task: TaskEntity
 }
 
+export type DeleteTaskBody = {
+  id: number
+  login: string
+}
+
+export type DeleteTasksBody = {
+  login: string;
+  ids: number[];
+}
+
+export type DeleteTasksResponse = {
+  ok: boolean;
+}
+
 export const tasksApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getTasks: build.query<GetTasksResponse, string>({
@@ -54,6 +68,22 @@ export const tasksApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [API_TAGS.TASKS],
     }),
+    deleteTask: build.mutation<void, DeleteTaskBody>({
+      query: ({ id, ...body }) => ({
+        url: API_ENDPOINTS.taskById(id),
+        method: HTTP_METHODS.delete,
+        body,
+      }),
+      invalidatesTags: [API_TAGS.TASKS],
+    }),
+    deleteTasks: build.mutation<DeleteTasksResponse, DeleteTasksBody>({
+      query: (body) => ({
+        url: API_ENDPOINTS.tasks,
+        method: HTTP_METHODS.delete,
+        body,
+      }),
+      invalidatesTags: [API_TAGS.TASKS],
+    }),
   }),
   overrideExisting: false,
 });
@@ -62,5 +92,7 @@ export const {
   useCreateTaskMutation,
   useGetTasksQuery,
   useLazyGetTasksQuery,
-  useMarkDoneMutation
+  useMarkDoneMutation,
+  useDeleteTaskMutation,
+  useDeleteTasksMutation
 } = tasksApi;

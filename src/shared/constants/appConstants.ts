@@ -14,6 +14,7 @@ export const API_ENDPOINTS = {
 export const HTTP_METHODS = {
   post: 'POST',
   patch: 'PATCH',
+  delete: 'DELETE'
 } as const;
 
 export const API_TAGS = {
