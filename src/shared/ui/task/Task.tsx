@@ -1,10 +1,9 @@
 import clsx from 'clsx';
-import { Check, Delete } from 'lucide-react';
+import { Check, Trash } from 'lucide-react';
 
 import type { TaskEntity } from '@/entities/task';
 import { APP_TEXT } from '@/shared/constants';
 
-import { Tooltip } from '../tooltip/Tooltip';
 import styles from './Task.module.scss';
 
 type TaskProps = {
@@ -31,16 +30,14 @@ export function Task({ task, onToggle, disabled = false, onDelete }: TaskProps) 
             <Check aria-hidden="true" size={16} />
           </span>
         ) : null}
-        <Tooltip content="Удалить задачу">
-          <button
-            type="button"
-            className={styles.iconButton}
-            onClick={() => onDelete(task.id)}
-            aria-label="Удалить задачу"
-          >
-            <Delete size={22} aria-hidden="true" />
-          </button>
-        </Tooltip>
+        <button
+          type="button"
+          className={styles.iconButton}
+          onClick={() => onDelete(task.id)}
+          aria-label="Удалить задачу"
+        >
+          <Trash size={16} aria-hidden="true" />
+        </button>
       </div>
 
     </li>

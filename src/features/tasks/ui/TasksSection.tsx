@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
-import { FilterIcon, Trash } from 'lucide-react';
+import { FilterIcon, Trash2 } from 'lucide-react';
 
 import { useAppSelector } from '@/app/store/hooks';
 import type { TaskEntity } from '@/entities/task';
@@ -102,7 +102,7 @@ export function TasksSection({ login }: TasksSectionProps) {
                 onClick={clearList}
                 aria-label="Удалить список"
               >
-                <Trash size={22} aria-hidden="true" />
+                <Trash2 size={22} aria-hidden="true" />
               </button>
             </Tooltip>
           </div>
