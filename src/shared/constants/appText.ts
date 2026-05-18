@@ -1,0 +1,45 @@
+export const APP_TEXT = {
+  app: {
+    rootElementNotFound: 'Элемент #root не найден',
+  },
+  navigation: {
+    homeTitle: 'Список покупок',
+    logout: 'Выйти',
+  },
+  auth: {
+    title: 'Вход',
+    loginLabel: 'Логин',
+    loginPlaceholder: 'Введите логин',
+    passwordLabel: 'Пароль',
+    passwordPlaceholder: '••••••••',
+    submit: 'Войти',
+    submitting: 'Вход…',
+    fallbackError: 'Не удалось войти. Попробуйте снова.',
+    validation: {
+      loginRequired: 'Введите логин',
+      loginMinLength: 'Минимум 3 символа',
+      loginMaxLength: 'Не более 64 символов',
+      passwordRequired: 'Введите пароль',
+      passwordMinLength: 'Минимум 6 символов',
+    },
+  },
+  tasks: {
+    heading: 'Купить',
+    loading: 'Загрузка…',
+    loadError: 'Не удалось загрузить покупки',
+    retry: 'Повторить',
+    refresh: 'Обновить',
+    refreshing: '…',
+    empty: 'Пока нет покупок',
+    completed: 'Выполнено',
+    create: {
+      title: 'Новая покупка',
+      placeholder: 'Например, купить молоко',
+      requiredError: 'Введите название',
+      submit: 'Добавить',
+      submitting: 'Добавление…',
+      cancel: 'Отмена',
+      fallbackError: 'Не удалось добавить продукт',
+    },
+  },
+} as const;

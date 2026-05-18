@@ -1,0 +1,31 @@
+.item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--palette-divider);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.title {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--palette-text);
+}
+
+.titleDone {
+  color: var(--palette-text-secondary);
+  text-decoration: line-through;
+}
+
+.badge {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--palette-success);
+}

@@ -1,0 +1,132 @@
+.section {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--palette-border);
+}
+
+.sectionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.heading {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.refresh {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--palette-accent);
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--palette-accent-border);
+  border-radius: 8px;
+}
+
+.refresh:hover:not(:disabled) {
+  background: var(--palette-accent-muted-bg);
+}
+
+.refresh:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.muted {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--palette-text-secondary);
+}
+
+.error {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--palette-danger);
+}
+
+.retry {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--palette-on-accent);
+  cursor: pointer;
+  background: var(--palette-accent);
+  border: none;
+  border-radius: 8px;
+}
+
+.retry:hover {
+  background: var(--palette-accent-hover);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--palette-divider);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.title {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.titleDone {
+  color: var(--palette-text-secondary);
+  text-decoration: line-through;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--palette-success);
+}
+
+.filterWrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.filterButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: var(--palette-accent);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+}
+
+.filterButton:hover {
+  background: var(--palette-accent-muted-bg);
+}

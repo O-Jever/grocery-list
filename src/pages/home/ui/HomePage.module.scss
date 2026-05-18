@@ -1,0 +1,56 @@
+.page {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+.text {
+  margin: 0 0 0.25rem;
+  color: var(--palette-text-secondary);
+}
+
+.logoutBtn {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  color: var(--palette-danger);
+  cursor: pointer;
+  background: var(--palette-danger-soft);
+  border: 1px solid var(--palette-danger-border);
+  border-radius: 10px;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.05s ease;
+}
+
+.logoutBtn:hover {
+  background: var(--palette-danger-hover-bg);
+}
+
+.logoutBtn:active {
+  transform: scale(0.96);
+}
+
+.logoutIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+}

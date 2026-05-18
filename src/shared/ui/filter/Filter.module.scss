@@ -1,0 +1,40 @@
+.menu {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  z-index: 10;
+  min-width: 10rem;
+  padding: 0.35rem;
+  background: var(--palette-surface);
+  border: 1px solid var(--palette-border);
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgb(var(--palette-shadow-rgb) / 14%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.menuItem {
+  padding: 0.45rem 0.65rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  text-align: left;
+  color: var(--palette-text);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+
+  &:hover {
+    background: var(--palette-surface-2);
+  }
+}
+
+.menuItemActive {
+  composes: menuItem;
+  font-weight: 600;
+  color: var(--palette-accent);
+  background: var(--palette-accent-muted-bg);
+}

@@ -1,0 +1,38 @@
+.loading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullPage {
+  height: 100vh;
+}
+
+.loadingAnimation {
+  position: absolute;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.small {
+  width: 16px;
+  height: 16px;
+}
+
+.big {
+  width: 32px;
+  height: 32px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

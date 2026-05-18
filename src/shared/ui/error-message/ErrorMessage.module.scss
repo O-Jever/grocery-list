@@ -1,0 +1,33 @@
+.errorMessage {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--palette-border);
+}
+
+.title {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.text {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--palette-danger);
+}
+
+.retry {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--palette-on-accent);
+  cursor: pointer;
+  background: var(--palette-accent);
+  border: none;
+  border-radius: 8px;
+}
+
+.retry:hover {
+  background: var(--palette-accent-hover);
+}

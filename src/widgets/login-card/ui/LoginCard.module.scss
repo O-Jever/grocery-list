@@ -1,0 +1,29 @@
+.card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem 1.75rem;
+  background: var(--palette-surface);
+  border: 1px solid var(--palette-border);
+  border-radius: 16px;
+  box-shadow:
+    0 1px 2px rgb(var(--palette-shadow-rgb) / 6%),
+    0 12px 40px rgb(var(--palette-shadow-rgb) / 8%);
+}
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  margin: 0 0 0.35rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--palette-text);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--palette-text-secondary);
+}

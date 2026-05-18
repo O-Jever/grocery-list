@@ -1,0 +1,14 @@
+.count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--palette-danger-bright);
+  border: 1px solid var(--palette-accent-border);
+  border-radius: 999px;
+}

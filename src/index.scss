@@ -1,0 +1,23 @@
+@use './app/styles/palette';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--palette-text);
+  background: var(--palette-bg);
+}
+
+#root {
+  min-height: 100vh;
+}
