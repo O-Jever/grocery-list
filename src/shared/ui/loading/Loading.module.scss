@@ -1,8 +1,9 @@
+@use '@/app/styles/mixins' as mixins;
+
 .loading {
+  @include mixins.flex-center;
+
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .fullPage {

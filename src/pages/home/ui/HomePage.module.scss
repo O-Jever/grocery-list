@@ -1,3 +1,5 @@
+@use '@/app/styles/mixins' as mixins;
+
 .page {
   max-width: 36rem;
   margin: 0 auto;
@@ -24,10 +26,9 @@
 }
 
 .logoutBtn {
-  display: inline-flex;
+  @include mixins.inline-flex-center;
+
   flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
   padding: 0;

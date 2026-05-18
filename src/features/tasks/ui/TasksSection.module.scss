@@ -1,3 +1,5 @@
+@use '@/app/styles/mixins' as mixins;
+
 .section {
   margin-top: 1.75rem;
   padding-top: 1.25rem;
@@ -114,10 +116,9 @@
   display: inline-flex;
 }
 
-.filterButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.iconButton {
+  @include mixins.inline-flex-center;
+
   width: 2rem;
   height: 2rem;
   color: var(--palette-accent);
@@ -127,6 +128,6 @@
   border-radius: 999px;
 }
 
-.filterButton:hover {
+.iconButton:hover {
   background: var(--palette-accent-muted-bg);
 }

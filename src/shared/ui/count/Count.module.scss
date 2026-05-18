@@ -1,7 +1,8 @@
+@use '@/app/styles/mixins' as mixins;
+
 .count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  @include mixins.inline-flex-center;
+
   min-width: 1.5rem;
   height: 1.5rem;
   padding: 0 0.45rem;

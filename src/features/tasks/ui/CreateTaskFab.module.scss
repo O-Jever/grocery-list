@@ -1,11 +1,12 @@
+@use '@/app/styles/mixins' as mixins;
+
 .fab {
   position: fixed;
   right: max(1.25rem, env(safe-area-inset-right, 0px));
   bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
   z-index: 40;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  @include mixins.inline-flex-center;
+
   width: 3.5rem;
   height: 3.5rem;
   padding: 0;
