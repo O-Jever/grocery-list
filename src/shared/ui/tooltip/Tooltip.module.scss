@@ -1,0 +1,45 @@
+@use '@/app/styles/mixins' as mixins;
+
+.tooltip {
+  position: relative;
+  @include mixins.inline-flex-center;
+}
+
+.content {
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  text-align: center;
+  left: 50%;
+  z-index: 20;
+  width: max-content;
+  max-width: 12rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: var(--palette-surface);
+  pointer-events: none;
+  background: var(--palette-text);
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateX(-50%) translateY(0.25rem);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.contentRight {
+  right: 0;
+  left: auto;
+  transform: translateY(0.25rem);
+}
+
+.tooltip:hover .content,
+.tooltip:focus-within .content {
+  opacity: 0.5;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltip:hover .contentRight,
+.tooltip:focus-within .contentRight {
+  transform: translateY(0);
+}
