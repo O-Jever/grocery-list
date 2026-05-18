@@ -1,19 +1,11 @@
 import { baseApi } from '@/shared/api/rtk/baseApi';
 import { API_ENDPOINTS, HTTP_METHODS } from '@/shared/constants';
 
-export type HealthResponse = { ok: boolean }
-
-export type LoginRequestBody = {
-  login: string
-  password: string
-}
-
-export type LoginResponse = {
-  user: {
-    id: number
-    login: string
-  }
-}
+import type {
+  HealthResponse,
+  LoginRequestBody,
+  LoginResponse,
+} from './authApi.types';
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
