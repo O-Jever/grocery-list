@@ -1,6 +1,6 @@
 import { APP_TEXT } from '@/shared/constants';
 
-export function getErrorMessage(error: unknown, fallback = APP_TEXT.tasks.loadError) {
+export function getErrorMessage(error: unknown, fallback: string = APP_TEXT.tasks.loadError) {
   if (
     typeof error === 'object' &&
     error !== null &&

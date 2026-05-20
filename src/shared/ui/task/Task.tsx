@@ -34,12 +34,11 @@ export function Task({ task, onToggle, disabled = false, onDelete }: TaskProps) 
           type="button"
           className={styles.iconButton}
           onClick={() => onDelete(task.id)}
-          aria-label="Удалить задачу"
+          aria-label="Удалить продукт"
         >
           <Trash size={16} aria-hidden="true" />
         </button>
       </div>
-
     </li>
   );
 }

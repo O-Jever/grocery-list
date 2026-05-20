@@ -52,7 +52,7 @@ export function TasksSection({ login }: TasksSectionProps) {
     return (
       <ErrorMessage
         title={APP_TEXT.tasks.heading}
-        message={getErrorMessage(error, APP_TEXT.tasks.loadError)}
+        message={getErrorMessage(error)}
         retryLabel={APP_TEXT.tasks.retry}
         onRetry={refetch}
       />
