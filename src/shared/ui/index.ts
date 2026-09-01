@@ -5,5 +5,6 @@ export { Filter } from './filter/Filter';
 export type { InputProps } from './input/Input';
 export { Input } from './input/Input';
 export { Loading } from './loading/Loading';
+export { Skeleton } from './skeleton/Skeleton';
 export { Task } from './task/Task';
 export { Tooltip } from './tooltip/Tooltip';
