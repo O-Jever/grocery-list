@@ -4,11 +4,12 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import storybook from "eslint-plugin-storybook";
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'storybook-static', 'debug-storybook.log']),
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
@@ -89,4 +90,5 @@ export default defineConfig([
       ],
     },
   },
+  ...storybook.configs["flat/recommended"]
 ]);
